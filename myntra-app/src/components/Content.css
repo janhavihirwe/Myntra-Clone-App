@@ -1,0 +1,8 @@
+.img-container{
+    margin: 20px 50px  20px 50px;
+}
+.text-coupons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
