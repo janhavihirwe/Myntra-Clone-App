@@ -8,17 +8,17 @@ function ImageGrid() {
   const [error, setError] = useState(null);     // State for error handling
 
   useEffect(() => {
-    axios.get('http://localhost:3000/images')
-      .then(response => {
-        setImages(response.data);
-        setLoading(false); // Set loading to false once images are fetched
-      })
-      .catch(error => {
-        console.error('Error fetching images:', error);
-        setError('Failed to fetch images');
-        setLoading(false); // Set loading to false on error
-      });
-  }, []);
+    axios.get('/db.json') // Adjust the path according to your project structure
+        .then(response => {
+            setImages(response.data.images); // Ensure this matches the structure of your db.json
+            setLoading(false); // Set loading to false once images are fetched
+        })
+        .catch(error => {
+            console.error('Error fetching images:', error);
+            setError('Failed to fetch images');
+            setLoading(false); // Set loading to false on error
+        });
+}, []);
 
   if (loading) {
     return <div>Loading...</div>; // Display loading indicator while fetching data

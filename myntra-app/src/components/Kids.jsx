@@ -12,14 +12,15 @@ function Kids({ addToWishlist }) {
     const [error, setError] = useState(null);
     const [sortOption, setSortOption] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8; // Adjusted to fit 4 items per row and two rows per page
+    const itemsPerPage = 8; 
     const [selectedBrands, setSelectedBrands] = useState([]);
   
     useEffect(() => {
-      axios.get('http://localhost:3000/ChildData')
-        .then(response => {
-          setProducts(response.data);
-          setFilteredProducts(response.data); // Initialize filteredProducts with all products
+      fetch('/db.json')
+        .then(response => response.json())
+        .then(data => {
+          setProducts(data.ChildData);
+          setFilteredProducts(data.ChildData); 
         })
         .catch(error => {
           console.error('Error fetching the products:', error);
@@ -46,7 +47,7 @@ function Kids({ addToWishlist }) {
           break;
       }
       setFilteredProducts(sortedProducts);
-      setCurrentPage(1); // Reset to the first page after sorting
+      setCurrentPage(1); 
     };
   
     const handlePageChange = (newPage) => {
@@ -71,7 +72,7 @@ function Kids({ addToWishlist }) {
           updatedSelectedBrands.includes(product.brand)
         );
         setFilteredProducts(updatedFilteredProducts);
-        setCurrentPage(1); // Reset to the first page after filtering
+        setCurrentPage(1);
       }
     };
   

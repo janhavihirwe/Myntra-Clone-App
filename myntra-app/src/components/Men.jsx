@@ -1,7 +1,21 @@
-import { Box, Button, Checkbox, CheckboxGroup, Divider, Grid, GridItem, HStack, Image, Select, Spacer, Stack, Text, VStack } from '@chakra-ui/react';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import './Men.css'
+import React, { useEffect, useState } from 'react';
+import {
+  Box,
+  Button,
+  Checkbox,
+  CheckboxGroup,
+  Divider,
+  Grid,
+  GridItem,
+  HStack,
+  Image,
+  Select,
+  Spacer,
+  Stack,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
+import './Men.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { FaHeart, FaStar } from 'react-icons/fa';
@@ -16,10 +30,11 @@ function Men({ addToWishlist }) {
   const [selectedBrands, setSelectedBrands] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/MensData')
-      .then(response => {
-        setProducts(response.data);
-        setFilteredProducts(response.data); // Initialize filteredProducts with all products
+    fetch('/db.json')
+      .then(response => response.json())
+      .then(data => {
+        setProducts(data.MensData);
+        setFilteredProducts(data.MensData); // Initialize filteredProducts with all products
       })
       .catch(error => {
         console.error('Error fetching the products:', error);
@@ -163,7 +178,6 @@ function Men({ addToWishlist }) {
       <Footer />
     </Box>
   );
-
 }
 
-export default Men
+export default Men;

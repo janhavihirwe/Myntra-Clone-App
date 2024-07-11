@@ -16,7 +16,14 @@ function Navbar() {
           </RouterLink>
             </Box>
             <Flex display={{ base: 'none', md: 'flex' }} className='navbar-links'ml={14}>
+              <Box className='dropdown'>
                 <RouterLink to='/men'><Link className='navbar-link'>MEN</Link></RouterLink>
+                <Box className='dropdown-content'>
+                {/* <RouterLink to='/men/shirts'><Link>Shirts</Link></RouterLink>
+                <RouterLink to='/men/trousers'><Link>Trousers</Link></RouterLink>
+                <RouterLink to='/men/shoes'><Link>Shoes</Link></RouterLink> */}
+              </Box>
+              </Box>
                 <RouterLink to='/women'><Link className='navbar-link'>WOMEN</Link></RouterLink>
                 <RouterLink to="/kids" ><Link className='navbar-link'>KIDS</Link></RouterLink>
                 <RouterLink to="/home&living"><Link  className='navbar-link'>HOME&LIVING</Link></RouterLink>
