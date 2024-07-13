@@ -24,3 +24,5 @@ Images:
 ![alt text](image-9.png)
 
 ![alt text](image-10.png)
+
+Deployed link:https://6692248f33078dca2724dd53--earnest-phoenix-1bc39b.netlify.app/bag
